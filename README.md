@@ -38,7 +38,6 @@ installable card artifact and public usage notes.
 type: custom:easy-schedule-card
 title: Easy Schedule
 schedule_id: core_switch
-name: Core switch
 value_type: boolean
 target_entity_id: switch.core_switch
 ```
@@ -53,7 +52,6 @@ For numeric targets, configure range metadata when useful:
 ```yaml
 type: custom:easy-schedule-card
 schedule_id: target_temperature
-name: Target temperature
 value_type: number
 target_entity_id: input_number.target_temperature
 min: 16
