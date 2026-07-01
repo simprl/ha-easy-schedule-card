@@ -4,8 +4,8 @@ Easy Schedule Card is a compact Home Assistant Lovelace card for user-editable
 time schedules. The first backend adapter targets
 [`scheduler-component`](https://github.com/nielsfaber/scheduler-component).
 
-The card is intentionally simple: developers define the controlled target in
-YAML, while users edit only time, weekdays, and value.
+The card is intentionally simple: developers define one controlled target per
+card in YAML, while users edit only time, weekdays, and value.
 
 ## Features
 
@@ -37,11 +37,10 @@ installable card artifact and public usage notes.
 ```yaml
 type: custom:easy-schedule-card
 title: Easy Schedule
-schedules:
-  - id: core_switch
-    name: Core switch
-    value_type: boolean
-    target_entity_id: switch.core_switch
+schedule_id: core_switch
+name: Core switch
+value_type: boolean
+target_entity_id: switch.core_switch
 ```
 
 `value_type` is currently explicit by design. Supported values:
@@ -53,16 +52,33 @@ For numeric targets, configure range metadata when useful:
 
 ```yaml
 type: custom:easy-schedule-card
-schedules:
-  - id: target_temperature
-    name: Target temperature
-    value_type: number
-    target_entity_id: input_number.target_temperature
-    min: 16
-    max: 28
-    step: 0.5
-    unit: C
+schedule_id: target_temperature
+name: Target temperature
+value_type: number
+target_entity_id: input_number.target_temperature
+min: 16
+max: 28
+step: 0.5
+unit: C
 ```
+
+## Admin Card
+
+Use the admin card to find scheduler items that are not owned by the configured
+Easy Schedule cards. Items are treated as expected only when they have both
+`easy_schedule_card` and `easy_schedule:<id>` tags, and `<id>` is listed in
+`known_schedule_ids`.
+
+```yaml
+type: custom:easy-schedule-admin-card
+title: Orphan schedules
+known_schedule_ids:
+  - boiler_summer
+  - boiler_winter
+```
+
+The admin card can disable orphan scheduler switches and delete scheduler items.
+Delete always asks for browser confirmation first.
 
 ## Backend Requirements
 

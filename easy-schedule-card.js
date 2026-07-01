@@ -1,4 +1,4 @@
-//#region ../../node_modules/@lit/reactive-element/css-tag.js
+//#region node_modules/@lit/reactive-element/css-tag.js
 var e = globalThis, t = e.ShadowRoot && (e.ShadyCSS === void 0 || e.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype, n = Symbol(), r = /* @__PURE__ */ new WeakMap(), i = class {
 	constructor(e, t, r) {
 		if (this._$cssResult$ = !0, r !== n) throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");
@@ -253,23 +253,23 @@ var v = class extends HTMLElement {
 };
 v.elementStyles = [], v.shadowRootOptions = { mode: "open" }, v[m("elementProperties")] = /* @__PURE__ */ new Map(), v[m("finalized")] = /* @__PURE__ */ new Map(), ie?.({ ReactiveElement: v }), (f.reactiveElementVersions ??= []).push("2.1.2");
 //#endregion
-//#region ../../node_modules/lit-html/lit-html.js
-var y = globalThis, b = (e) => e, x = y.trustedTypes, S = x ? x.createPolicy("lit-html", { createHTML: (e) => e }) : void 0, C = "$lit$", w = `lit$${Math.random().toFixed(9).slice(2)}$`, ae = "?" + w, oe = `<${ae}>`, T = document, E = () => T.createComment(""), D = (e) => e === null || typeof e != "object" && typeof e != "function", O = Array.isArray, se = (e) => O(e) || typeof e?.[Symbol.iterator] == "function", k = "[ 	\n\f\r]", A = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, j = /-->/g, M = />/g, N = RegExp(`>|${k}(?:([^\\s"'>=/]+)(${k}*=${k}*(?:[^ \t\n\f\r"'\`<>=]|("|')|))|$)`, "g"), P = /'/g, F = /"/g, I = /^(?:script|style|textarea|title)$/i, L = ((e) => (t, ...n) => ({
+//#region node_modules/lit-html/lit-html.js
+var y = globalThis, b = (e) => e, x = y.trustedTypes, S = x ? x.createPolicy("lit-html", { createHTML: (e) => e }) : void 0, C = "$lit$", w = `lit$${Math.random().toFixed(9).slice(2)}$`, T = "?" + w, ae = `<${T}>`, E = document, D = () => E.createComment(""), O = (e) => e === null || typeof e != "object" && typeof e != "function", k = Array.isArray, oe = (e) => k(e) || typeof e?.[Symbol.iterator] == "function", A = "[ 	\n\f\r]", j = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, M = /-->/g, se = />/g, N = RegExp(`>|${A}(?:([^\\s"'>=/]+)(${A}*=${A}*(?:[^ \t\n\f\r"'\`<>=]|("|')|))|$)`, "g"), P = /'/g, F = /"/g, I = /^(?:script|style|textarea|title)$/i, L = ((e) => (t, ...n) => ({
 	_$litType$: e,
 	strings: t,
 	values: n
-}))(1), R = Symbol.for("lit-noChange"), z = Symbol.for("lit-nothing"), B = /* @__PURE__ */ new WeakMap(), V = T.createTreeWalker(T, 129);
+}))(1), R = Symbol.for("lit-noChange"), z = Symbol.for("lit-nothing"), B = /* @__PURE__ */ new WeakMap(), V = E.createTreeWalker(E, 129);
 function H(e, t) {
-	if (!O(e) || !e.hasOwnProperty("raw")) throw Error("invalid template strings array");
+	if (!k(e) || !e.hasOwnProperty("raw")) throw Error("invalid template strings array");
 	return S === void 0 ? t : S.createHTML(t);
 }
 var ce = (e, t) => {
-	let n = e.length - 1, r = [], i, a = t === 2 ? "<svg>" : t === 3 ? "<math>" : "", o = A;
+	let n = e.length - 1, r = [], i, a = t === 2 ? "<svg>" : t === 3 ? "<math>" : "", o = j;
 	for (let t = 0; t < n; t++) {
 		let n = e[t], s, c, l = -1, u = 0;
-		for (; u < n.length && (o.lastIndex = u, c = o.exec(n), c !== null);) u = o.lastIndex, o === A ? c[1] === "!--" ? o = j : c[1] === void 0 ? c[2] === void 0 ? c[3] !== void 0 && (o = N) : (I.test(c[2]) && (i = RegExp("</" + c[2], "g")), o = N) : o = M : o === N ? c[0] === ">" ? (o = i ?? A, l = -1) : c[1] === void 0 ? l = -2 : (l = o.lastIndex - c[2].length, s = c[1], o = c[3] === void 0 ? N : c[3] === "\"" ? F : P) : o === F || o === P ? o = N : o === j || o === M ? o = A : (o = N, i = void 0);
+		for (; u < n.length && (o.lastIndex = u, c = o.exec(n), c !== null);) u = o.lastIndex, o === j ? c[1] === "!--" ? o = M : c[1] === void 0 ? c[2] === void 0 ? c[3] !== void 0 && (o = N) : (I.test(c[2]) && (i = RegExp("</" + c[2], "g")), o = N) : o = se : o === N ? c[0] === ">" ? (o = i ?? j, l = -1) : c[1] === void 0 ? l = -2 : (l = o.lastIndex - c[2].length, s = c[1], o = c[3] === void 0 ? N : c[3] === "\"" ? F : P) : o === F || o === P ? o = N : o === M || o === se ? o = j : (o = N, i = void 0);
 		let d = o === N && e[t + 1].startsWith("/>") ? " " : "";
-		a += o === A ? n + oe : l >= 0 ? (r.push(s), n.slice(0, l) + C + n.slice(l) + w + d) : n + w + (l === -2 ? t : d);
+		a += o === j ? n + ae : l >= 0 ? (r.push(s), n.slice(0, l) + C + n.slice(l) + w + d) : n + w + (l === -2 ? t : d);
 	}
 	return [H(e, a + (e[n] || "<?>") + (t === 2 ? "</svg>" : t === 3 ? "</math>" : "")), r];
 }, U = class e {
@@ -300,14 +300,14 @@ var ce = (e, t) => {
 					let e = i.textContent.split(w), t = e.length - 1;
 					if (t > 0) {
 						i.textContent = x ? x.emptyScript : "";
-						for (let n = 0; n < t; n++) i.append(e[n], E()), V.nextNode(), c.push({
+						for (let n = 0; n < t; n++) i.append(e[n], D()), V.nextNode(), c.push({
 							type: 2,
 							index: ++a
 						});
-						i.append(e[t], E());
+						i.append(e[t], D());
 					}
 				}
-			} else if (i.nodeType === 8) if (i.data === ae) c.push({
+			} else if (i.nodeType === 8) if (i.data === T) c.push({
 				type: 2,
 				index: a
 			});
@@ -322,13 +322,13 @@ var ce = (e, t) => {
 		}
 	}
 	static createElement(e, t) {
-		let n = T.createElement("template");
+		let n = E.createElement("template");
 		return n.innerHTML = e, n;
 	}
 };
 function W(e, t, n = e, r) {
 	if (t === R) return t;
-	let i = r === void 0 ? n._$Cl : n._$Co?.[r], a = D(t) ? void 0 : t._$litDirective$;
+	let i = r === void 0 ? n._$Cl : n._$Co?.[r], a = O(t) ? void 0 : t._$litDirective$;
 	return i?.constructor !== a && (i?._$AO?.(!1), a === void 0 ? i = void 0 : (i = new a(e), i._$AT(e, n, r)), r === void 0 ? n._$Cl = i : (n._$Co ??= [])[r] = i), i !== void 0 && (t = W(e, i._$AS(e, t.values), i, r)), t;
 }
 var le = class {
@@ -342,7 +342,7 @@ var le = class {
 		return this._$AM._$AU;
 	}
 	u(e) {
-		let { el: { content: t }, parts: n } = this._$AD, r = (e?.creationScope ?? T).importNode(t, !0);
+		let { el: { content: t }, parts: n } = this._$AD, r = (e?.creationScope ?? E).importNode(t, !0);
 		V.currentNode = r;
 		let i = V.nextNode(), a = 0, o = 0, s = n[0];
 		for (; s !== void 0;) {
@@ -352,7 +352,7 @@ var le = class {
 			}
 			a !== s?.index && (i = V.nextNode(), a++);
 		}
-		return V.currentNode = T, r;
+		return V.currentNode = E, r;
 	}
 	p(e) {
 		let t = 0;
@@ -376,7 +376,7 @@ var le = class {
 		return this._$AB;
 	}
 	_$AI(e, t = this) {
-		e = W(this, e, t), D(e) ? e === z || e == null || e === "" ? (this._$AH !== z && this._$AR(), this._$AH = z) : e !== this._$AH && e !== R && this._(e) : e._$litType$ === void 0 ? e.nodeType === void 0 ? se(e) ? this.k(e) : this._(e) : this.T(e) : this.$(e);
+		e = W(this, e, t), O(e) ? e === z || e == null || e === "" ? (this._$AH !== z && this._$AR(), this._$AH = z) : e !== this._$AH && e !== R && this._(e) : e._$litType$ === void 0 ? e.nodeType === void 0 ? oe(e) ? this.k(e) : this._(e) : this.T(e) : this.$(e);
 	}
 	O(e) {
 		return this._$AA.parentNode.insertBefore(e, this._$AB);
@@ -385,7 +385,7 @@ var le = class {
 		this._$AH !== e && (this._$AR(), this._$AH = this.O(e));
 	}
 	_(e) {
-		this._$AH !== z && D(this._$AH) ? this._$AA.nextSibling.data = e : this.T(T.createTextNode(e)), this._$AH = e;
+		this._$AH !== z && O(this._$AH) ? this._$AA.nextSibling.data = e : this.T(E.createTextNode(e)), this._$AH = e;
 	}
 	$(e) {
 		let { values: t, _$litType$: n } = e, r = typeof n == "number" ? this._$AC(e) : (n.el === void 0 && (n.el = U.createElement(H(n.h, n.h[0]), this.options)), n);
@@ -400,9 +400,9 @@ var le = class {
 		return t === void 0 && B.set(e.strings, t = new U(e)), t;
 	}
 	k(t) {
-		O(this._$AH) || (this._$AH = [], this._$AR());
+		k(this._$AH) || (this._$AH = [], this._$AR());
 		let n = this._$AH, r, i = 0;
-		for (let a of t) i === n.length ? n.push(r = new e(this.O(E()), this.O(E()), this, this.options)) : r = n[i], r._$AI(a), i++;
+		for (let a of t) i === n.length ? n.push(r = new e(this.O(D()), this.O(D()), this, this.options)) : r = n[i], r._$AI(a), i++;
 		i < n.length && (this._$AR(r && r._$AB.nextSibling, i), n.length = i);
 	}
 	_$AR(e = this._$AA.nextSibling, t) {
@@ -426,10 +426,10 @@ var le = class {
 	}
 	_$AI(e, t = this, n, r) {
 		let i = this.strings, a = !1;
-		if (i === void 0) e = W(this, e, t, 0), a = !D(e) || e !== this._$AH && e !== R, a && (this._$AH = e);
+		if (i === void 0) e = W(this, e, t, 0), a = !O(e) || e !== this._$AH && e !== R, a && (this._$AH = e);
 		else {
 			let r = e, o, s;
-			for (e = i[0], o = 0; o < i.length - 1; o++) s = W(this, r[n + o], t, o), s === R && (s = this._$AH[o]), a ||= !D(s) || s !== this._$AH[o], s === z ? e = z : e !== z && (e += (s ?? "") + i[o + 1]), this._$AH[o] = s;
+			for (e = i[0], o = 0; o < i.length - 1; o++) s = W(this, r[n + o], t, o), s === R && (s = this._$AH[o]), a ||= !O(s) || s !== this._$AH[o], s === z ? e = z : e !== z && (e += (s ?? "") + i[o + 1]), this._$AH[o] = s;
 		}
 		a && !r && this.j(e);
 	}
@@ -478,7 +478,7 @@ var he = (e, t, n) => {
 	let r = n?.renderBefore ?? t, i = r._$litPart$;
 	if (i === void 0) {
 		let e = n?.renderBefore ?? null;
-		r._$litPart$ = i = new G(t.insertBefore(E(), e), e, void 0, n ?? {});
+		r._$litPart$ = i = new G(t.insertBefore(D(), e), e, void 0, n ?? {});
 	}
 	return i._$AI(e), i;
 }, q = globalThis, J = class extends v {
@@ -548,7 +548,6 @@ var Y = [
 	en: {
 		addRule: "Add rule",
 		cancel: "Cancel",
-		createRule: "Create rule",
 		deleteRule: "Delete rule",
 		disabled: "Rule disabled",
 		editRule: "Edit rule",
@@ -556,14 +555,11 @@ var Y = [
 		noRules: "No rules",
 		off: "Off",
 		on: "On",
-		refresh: "Refresh",
-		saveRule: "Save rule",
 		title: "Easy Schedule"
 	},
 	ru: {
 		addRule: "Додати правило",
 		cancel: "Скасувати",
-		createRule: "Створити правило",
 		deleteRule: "Видалити правило",
 		disabled: "Правило вимкнено",
 		editRule: "Редагувати правило",
@@ -571,14 +567,11 @@ var Y = [
 		noRules: "Немає правил",
 		off: "Вимк",
 		on: "Увімк",
-		refresh: "Оновити",
-		saveRule: "Зберегти правило",
 		title: "Простий розклад"
 	},
 	uk: {
 		addRule: "Додати правило",
 		cancel: "Скасувати",
-		createRule: "Створити правило",
 		deleteRule: "Видалити правило",
 		disabled: "Правило вимкнено",
 		editRule: "Редагувати правило",
@@ -586,8 +579,6 @@ var Y = [
 		noRules: "Немає правил",
 		off: "Вимк",
 		on: "Увімк",
-		refresh: "Оновити",
-		saveRule: "Зберегти правило",
 		title: "Простий розклад"
 	}
 };
@@ -607,30 +598,26 @@ function ye(e, t) {
 function Z(e) {
 	return e.includes("daily") ? new Set(Y.map((e) => e.value)) : new Set(e.filter((e) => e !== "daily"));
 }
-function Q(e) {
+function be(e) {
 	return e.size === Y.length ? ["daily"] : Y.map((e) => e.value).filter((t) => e.has(t));
 }
-function be(e) {
+function xe(e) {
 	return e.split(".", 1)[0] ?? "";
 }
-function xe(e) {
+function Se(e) {
 	let t = (e?.locale?.language ?? e?.language ?? "en").toLowerCase();
 	return t.startsWith("ru") ? "ru" : t.startsWith("uk") || t.startsWith("ua") ? "uk" : "en";
 }
-function Se(e, t) {
-	if (xe(t) === "en") return e.fallbackLabel;
+function Ce(e, t) {
+	if (Se(t) === "en") return e.fallbackLabel;
 	try {
 		return new Intl.DateTimeFormat("uk-UA", { weekday: "short" }).format(e.date).replace(".", "").slice(0, 2);
 	} catch {
 		return e.fallbackLabel;
 	}
 }
-function $(e) {
+function Q(e) {
 	switch (e) {
-		case "refresh": return L`<svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M21 12a9 9 0 1 1-2.64-6.36" />
-        <path d="M21 3v6h-6" />
-      </svg>`;
 		case "power": return L`<svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M12 2v10" />
         <path d="M18.36 6.64a9 9 0 1 1-12.72 0" />
@@ -659,16 +646,16 @@ function $(e) {
       </svg>`;
 	}
 }
-var Ce = class extends J {
+var $ = class extends J {
 	static {
 		this.properties = {
 			hass: { attribute: !1 },
 			config: { state: !0 },
-			rulesBySchedule: { state: !0 },
-			selectedScheduleId: { state: !0 },
+			rules: { state: !0 },
 			draftTime: { state: !0 },
 			draftWeekdays: { state: !0 },
 			draftValue: { state: !0 },
+			draftEnabled: { state: !0 },
 			editorMode: { state: !0 },
 			editingRuleId: { state: !0 },
 			loading: { state: !0 },
@@ -683,78 +670,79 @@ var Ce = class extends J {
 		this._hass = e, this.requestUpdate("hass", t), this.requestInitialRefresh();
 	}
 	constructor() {
-		super(), this.initialRefreshRequested = !1, this.config = void 0, this.rulesBySchedule = {}, this.selectedScheduleId = "", this.draftTime = "06:00", this.draftWeekdays = new Set(Y.map((e) => e.value)), this.draftValue = !0, this.editorMode = "closed", this.editingRuleId = "", this.loading = !1, this.error = "";
+		super(), this.initialRefreshRequested = !1, this.config = void 0, this.rules = [], this.draftTime = "06:00", this.draftWeekdays = new Set(Y.map((e) => e.value)), this.draftValue = !0, this.draftEnabled = !0, this.editorMode = "closed", this.editingRuleId = "", this.loading = !1, this.error = "";
 	}
 	setConfig(e) {
-		if (!Array.isArray(e.schedules) || e.schedules.length === 0) throw Error("Easy Schedule Card requires at least one schedule");
-		this.config = e, this.selectedScheduleId = e.schedules[0].id, this.draftValue = e.schedules[0].value_type === "boolean" ? !0 : e.schedules[0].min ?? 0, this.initialRefreshRequested = !1, this.requestInitialRefresh();
+		if (!e.schedule_id || !e.name || !e.value_type || !e.target_entity_id) throw Error("Easy Schedule Card requires schedule_id, name, value_type, and target_entity_id");
+		this.config = e, this.draftValue = e.value_type === "boolean" ? !0 : e.min ?? 0, this.initialRefreshRequested = !1, this.requestInitialRefresh();
 	}
 	firstUpdated() {
-		this.requestInitialRefresh();
+		this.requestInitialRefresh(), this.requestSchedulerSubscription();
 	}
 	updated(e) {
-		(e.has("hass") || e.has("config")) && this.requestInitialRefresh();
+		(e.has("hass") || e.has("config")) && (this.requestInitialRefresh(), this.requestSchedulerSubscription());
+	}
+	disconnectedCallback() {
+		super.disconnectedCallback();
+		let e = this.schedulerSubscription;
+		this.schedulerSubscription = void 0, e && e.then((e) => e());
 	}
 	t(e) {
-		return _e[xe(this.hass)][e];
+		return _e[Se(this.hass)][e];
 	}
 	render() {
 		if (!this.config) return z;
-		let e = this.config.schedules, t = e.find((e) => e.id === this.selectedScheduleId) ?? e[0], n = this.rulesBySchedule[t.id] ?? [];
+		let e = this.config, t = this.rules, n = this.getScheduleEnabledState();
 		return L`
       <ha-card>
         <div class="content">
           <header>
-            <h2>${this.config.title ?? this.t("title")}</h2>
-            <div class="header-actions">
-              <button
-                class="primary icon"
-                title=${this.t("addRule")}
-                ?disabled=${this.loading}
-                @click=${() => this.openCreateEditor(t)}
-              >
-                ${$("plus")}
-              </button>
-              <button class="icon" title=${this.t("refresh")} ?disabled=${this.loading} @click=${this.refreshRules}>
-                ${$("refresh")}
-              </button>
+            <div class="header-title">
+              <h2>${this.config.title ?? this.t("title")}</h2>
             </div>
+            <span class=${n === "mixed" ? "schedule-switch-wrap mixed" : "schedule-switch-wrap"}>
+              <ha-switch
+              class="schedule-switch"
+              .checked=${n === "all-on"}
+              ?disabled=${this.loading || t.length === 0}
+              @change=${() => this.setAllRulesEnabled(n !== "all-on")}
+              ></ha-switch>
+            </span>
           </header>
 
-          ${e.length > 1 ? L`
-                <div class="tabs">
-                  ${e.map((e) => L`
-                      <button
-                        class=${e.id === t.id ? "active" : ""}
-                        @click=${() => this.selectSchedule(e)}
-                      >
-                        ${e.name}
-                      </button>
-                    `)}
-                </div>
-              ` : L`<h3>${t.name}</h3>`}
+          <h3>${e.name}</h3>
 
           ${this.error ? L`<div class="error">${this.error}</div>` : z}
 
           <div class="rules">
-            ${n.length === 0 ? L`<div class="empty">${this.t("noRules")}</div>` : n.map((e) => this.renderRule(t, e))}
+            ${t.length === 0 ? L`<div class="empty">${this.t("noRules")}</div>` : t.map((t) => this.renderRule(e, t))}
           </div>
 
-          ${this.editorMode === "create" ? this.renderEditor(t) : z}
+          <div class="footer-actions">
+            <button
+              class="primary icon"
+              title=${this.t("addRule")}
+              ?disabled=${this.loading}
+              @click=${() => this.addDefaultRuleAndEdit(e)}
+            >
+              ${Q("plus")}
+            </button>
+          </div>
+
         </div>
       </ha-card>
     `;
 	}
 	renderRule(e, t) {
 		return this.editorMode === "edit" && this.editingRuleId === t.scheduleId ? this.renderRuleEditor(e, t) : L`
-      <div class="rule">
-        <button
-          class=${t.enabled ? "icon toggle on" : "icon toggle"}
-          title=${t.enabled ? this.t("enabled") : this.t("disabled")}
-          @click=${() => this.setRuleEnabled(t, !t.enabled)}
-        >
-          ${$("power")}
-        </button>
+      <div
+        class="rule"
+        role="button"
+        tabindex="0"
+        title=${this.t("editRule")}
+        @click=${() => this.openEditEditor(e, t)}
+        @keydown=${(n) => this.openEditEditorFromKeyboard(n, e, t)}
+      >
         <div class="rule-main">
           <div class="rule-line">
             ${this.renderDayTokens(Z(t.weekdays))}
@@ -764,85 +752,58 @@ var Ce = class extends J {
             ${t.nextTrigger ? L`<span>${this.formatNextTrigger(t.nextTrigger)}</span>` : z}
           </div>
         </div>
-        <button class="icon" title=${this.t("editRule")} @click=${() => this.openEditEditor(e, t)}>
-          ${$("edit")}
-        </button>
       </div>
     `;
 	}
 	renderRuleEditor(e, t) {
 		return L`
-      <form class="rule-edit" @submit=${(t) => this.submitEditor(t, e)}>
-        <input
-          type="time"
-          .value=${this.draftTime}
-          @input=${(e) => {
-			this.draftTime = e.target.value;
-		}}
-        />
-        ${this.renderDayButtons(this.draftWeekdays)}
-        ${this.renderValueInput(e)}
-        <div class="editor-actions">
-          <button class="primary icon" title=${this.t("saveRule")} ?disabled=${this.loading}>
-            ${$("check")}
-          </button>
+      <div class="rule-edit">
+        <div class="editor-top">
           <button class="icon" type="button" title=${this.t("cancel")} ?disabled=${this.loading} @click=${() => this.closeEditor()}>
-            ${$("x")}
+            ${Q("x")}
           </button>
-          <button
-            class="icon danger"
-            type="button"
-            title=${this.t("deleteRule")}
+          <div class="editor-top-right">
+            <ha-switch
+              class="rule-switch"
+              .checked=${this.draftEnabled}
+              ?disabled=${this.loading}
+              @change=${(t) => {
+			this.draftEnabled = t.target.checked, this.autoSaveEditingRule(e);
+		}}
+            ></ha-switch>
+            <button
+              class="icon danger"
+              type="button"
+              title=${this.t("deleteRule")}
+              ?disabled=${this.loading}
+              @click=${() => this.deleteEditingRule()}
+            >
+              ${Q("trash")}
+            </button>
+          </div>
+        </div>
+        <div class="editor-row editor-days">${this.renderDayButtons(e, this.draftWeekdays)}</div>
+        <div class="editor-row editor-controls">
+          <input
+            type="time"
+            .value=${this.draftTime}
             ?disabled=${this.loading}
-            @click=${() => this.deleteEditingRule()}
-          >
-            ${$("trash")}
-          </button>
-        </div>
-      </form>
-    `;
-	}
-	renderEditor(e) {
-		let t = this.editorMode === "edit";
-		return L`
-      <form class="editor" @submit=${(t) => this.submitEditor(t, e)}>
-        <input
-          type="time"
-          .value=${this.draftTime}
-          @input=${(e) => {
-			this.draftTime = e.target.value;
+            @change=${(t) => {
+			this.draftTime = t.target.value, this.autoSaveEditingRule(e);
 		}}
-        />
-        ${this.renderDayButtons(this.draftWeekdays)}
-        ${this.renderValueInput(e)}
-        <div class="editor-actions">
-          <button class="primary icon" title=${t ? this.t("saveRule") : this.t("createRule")} ?disabled=${this.loading}>
-            ${$(t ? "check" : "plus")}
-          </button>
-          <button class="icon" type="button" title=${this.t("cancel")} ?disabled=${this.loading} @click=${() => this.closeEditor()}>
-            ${$("x")}
-          </button>
-          ${t ? L`
-                <button
-                  class="icon danger"
-                  type="button"
-                  title=${this.t("deleteRule")}
-                  ?disabled=${this.loading}
-                  @click=${() => this.deleteEditingRule()}
-                >
-                  ${$("trash")}
-                </button>
-              ` : z}
+          />
+          ${this.renderValueInput(e)}
         </div>
-      </form>
+      </div>
     `;
 	}
 	renderValueInput(e) {
 		return e.value_type === "boolean" ? L`
         <select
           .value=${String(this.draftValue)}
-          @change=${(e) => {
-			this.draftValue = e.target.value === "true";
+          ?disabled=${this.loading}
+          @change=${(t) => {
+			this.draftValue = t.target.value === "true", this.autoSaveEditingRule(e);
 		}}
         >
           <option value="true">${this.t("on")}</option>
@@ -855,20 +816,18 @@ var Ce = class extends J {
         min=${e.min ?? z}
         max=${e.max ?? z}
         step=${e.step ?? 1}
-        @input=${(e) => {
-			this.draftValue = Number(e.target.value);
+        ?disabled=${this.loading}
+        @change=${(t) => {
+			this.draftValue = Number(t.target.value), this.autoSaveEditingRule(e);
 		}}
       />
     `;
 	}
-	selectSchedule(e) {
-		this.selectedScheduleId = e.id, this.draftValue = e.value_type === "boolean" ? !0 : e.min ?? 0, this.closeEditor();
-	}
-	openCreateEditor(e) {
-		this.editorMode = "create", this.editingRuleId = "", this.draftTime = "06:00", this.draftWeekdays = new Set(Y.map((e) => e.value)), this.draftValue = e.value_type === "boolean" ? !0 : e.min ?? 0;
-	}
 	openEditEditor(e, t) {
-		this.editorMode = "edit", this.editingRuleId = t.scheduleId, this.draftTime = t.time, this.draftWeekdays = Z(t.weekdays), this.draftValue = t.value;
+		this.editorMode = "edit", this.editingRuleId = t.scheduleId, this.draftTime = t.time, this.draftWeekdays = Z(t.weekdays), this.draftValue = t.value, this.draftEnabled = t.enabled;
+	}
+	openEditEditorFromKeyboard(e, t, n) {
+		e.key !== "Enter" && e.key !== " " || (e.preventDefault(), this.openEditEditor(t, n));
 	}
 	closeEditor() {
 		this.editorMode = "closed", this.editingRuleId = "";
@@ -878,47 +837,52 @@ var Ce = class extends J {
       <div class="days" aria-label="Weekdays">
         ${Y.map((t) => L`
             <span class=${e.has(t.value) ? "day-token active" : "day-token"}>
-              ${Se(t, this.hass)}
+              ${Ce(t, this.hass)}
             </span>
           `)}
       </div>
     `;
 	}
-	renderDayButtons(e) {
+	renderDayButtons(e, t) {
 		return L`
       <div class="day-buttons" aria-label="Select weekdays">
-        ${Y.map((t) => L`
+        ${Y.map((n) => L`
             <button
-              class=${e.has(t.value) ? "day-button active" : "day-button"}
+              class=${t.has(n.value) ? "day-button active" : "day-button"}
               type="button"
-              aria-pressed=${e.has(t.value)}
-              @click=${() => this.toggleWeekday(t.value)}
+              aria-pressed=${t.has(n.value)}
+              ?disabled=${this.loading}
+              @click=${() => this.toggleWeekday(e, n.value)}
             >
-              ${Se(t, this.hass)}
+              ${Ce(n, this.hass)}
             </button>
           `)}
       </div>
     `;
 	}
-	toggleWeekday(e) {
-		let t = new Set(this.draftWeekdays);
-		t.has(e) ? t.delete(e) : t.add(e), t.size === 0 && t.add(e), this.draftWeekdays = t;
+	toggleWeekday(e, t) {
+		let n = new Set(this.draftWeekdays);
+		n.has(t) ? n.delete(t) : n.add(t), n.size === 0 && n.add(t), this.draftWeekdays = n, this.autoSaveEditingRule(e);
 	}
 	requestInitialRefresh() {
 		this.initialRefreshRequested || !this.hass || !this.config || (this.initialRefreshRequested = !0, this.refreshRules());
 	}
-	async refreshRules() {
-		if (!(!this.hass || !this.config)) {
-			this.loading = !0, this.error = "";
-			try {
-				let e = ve(await this.hass.callApi("GET", "scheduler/list")), t = {};
-				for (let n of this.config.schedules) t[n.id] = e.filter((e) => ye(e, n.id)).map((e) => this.toScheduleRule(n, e)).filter((e) => !!e).sort((e, t) => e.time.localeCompare(t.time));
-				this.rulesBySchedule = t;
-			} catch (e) {
-				this.error = e instanceof Error ? e.message : String(e);
-			} finally {
-				this.loading = !1;
-			}
+	requestSchedulerSubscription() {
+		this.schedulerSubscription || !this.hass?.connection || !this.config || (this.schedulerSubscription = this.hass.connection.subscribeMessage(() => {
+			this.refreshRules({ quiet: !0 });
+		}, { type: "scheduler_updated" }));
+	}
+	async refreshRules(e) {
+		if (!this.hass || !this.config) return;
+		let t = this.config;
+		e?.quiet || (this.loading = !0), this.error = "";
+		try {
+			let e = ve(await this.hass.callApi("GET", "scheduler/list"));
+			this.rules = e.filter((e) => ye(e, t.schedule_id)).map((e) => this.toScheduleRule(t, e)).filter((e) => !!e).sort((e, t) => e.time.localeCompare(t.time));
+		} catch (e) {
+			this.error = e instanceof Error ? e.message : String(e);
+		} finally {
+			e?.quiet || (this.loading = !1);
 		}
 	}
 	toScheduleRule(e, t) {
@@ -936,49 +900,46 @@ var Ce = class extends J {
 			nextTrigger: t.timestamps?.[0]
 		};
 	}
-	async submitEditor(e, t) {
-		if (e.preventDefault(), this.editorMode === "edit") {
-			await this.editRule(t);
-			return;
-		}
-		await this.addRule(t);
-	}
-	async addRule(e) {
-		if (this.hass) {
-			this.loading = !0, this.error = "";
-			try {
-				await this.hass.callApi("POST", "scheduler/add", {
-					name: `${e.name} ${this.draftTime}`,
-					weekdays: Q(this.draftWeekdays),
-					repeat_type: "repeat",
-					tags: [X, `easy_schedule:${e.id}`],
-					timeslots: [{
-						start: this.draftTime,
-						actions: [this.actionForValue(e, this.draftValue)]
-					}]
-				}), this.closeEditor(), await this.refreshRules();
-			} catch (e) {
-				this.error = e instanceof Error ? e.message : String(e);
-			} finally {
-				this.loading = !1;
-			}
+	async addDefaultRuleAndEdit(e) {
+		if (!this.hass) return;
+		let t = new Set(this.rules.map((e) => e.scheduleId));
+		this.draftTime = "06:00", this.draftWeekdays = new Set(Y.map((e) => e.value)), this.draftValue = e.value_type === "boolean" ? !0 : e.min ?? 0, this.draftEnabled = !0, this.loading = !0, this.error = "";
+		try {
+			await this.hass.callApi("POST", "scheduler/add", {
+				name: `${e.name} ${this.draftTime}`,
+				weekdays: be(this.draftWeekdays),
+				repeat_type: "repeat",
+				tags: [X, `easy_schedule:${e.schedule_id}`],
+				timeslots: [{
+					start: this.draftTime,
+					actions: [this.actionForValue(e, this.draftValue)]
+				}]
+			}), await this.refreshRules();
+			let n = this.rules.find((e) => !t.has(e.scheduleId)) ?? this.rules.find((e) => e.time === this.draftTime);
+			n && this.openEditEditor(e, n);
+		} catch (e) {
+			this.error = e instanceof Error ? e.message : String(e);
+		} finally {
+			this.loading = !1;
 		}
 	}
-	async editRule(e) {
-		if (!(!this.hass || !this.editingRuleId)) {
+	async autoSaveEditingRule(e) {
+		if (!this.hass || !this.editingRuleId) return;
+		let t = this.rules.find((e) => e.scheduleId === this.editingRuleId);
+		if (t?.entityId) {
 			this.loading = !0, this.error = "";
 			try {
 				await this.hass.callApi("POST", "scheduler/edit", {
-					schedule_id: this.editingRuleId,
+					schedule_id: t.scheduleId,
 					name: `${e.name} ${this.draftTime}`,
-					weekdays: Q(this.draftWeekdays),
+					weekdays: be(this.draftWeekdays),
 					repeat_type: "repeat",
-					tags: [X, `easy_schedule:${e.id}`],
+					tags: [X, `easy_schedule:${e.schedule_id}`],
 					timeslots: [{
 						start: this.draftTime,
 						actions: [this.actionForValue(e, this.draftValue)]
 					}]
-				}), this.closeEditor(), await this.refreshRules();
+				}), t.enabled !== this.draftEnabled && await this.callRuleSwitch(t, this.draftEnabled), await this.refreshRules(), this.editorMode = "edit", this.editingRuleId = t.scheduleId;
 			} catch (e) {
 				this.error = e instanceof Error ? e.message : String(e);
 			} finally {
@@ -987,7 +948,7 @@ var Ce = class extends J {
 		}
 	}
 	actionForValue(e, t) {
-		let n = be(e.target_entity_id);
+		let n = xe(e.target_entity_id);
 		return e.value_type === "boolean" ? {
 			service: `${n}.${t ? "turn_on" : "turn_off"}`,
 			entity_id: e.target_entity_id,
@@ -1002,7 +963,26 @@ var Ce = class extends J {
 		if (!(!this.hass || !e.entityId)) {
 			this.loading = !0, this.error = "";
 			try {
-				await this.hass.callService("switch", t ? "turn_on" : "turn_off", { entity_id: e.entityId }), await this.refreshRules();
+				await this.callRuleSwitch(e, t), await this.refreshRules();
+			} catch (e) {
+				this.error = e instanceof Error ? e.message : String(e);
+			} finally {
+				this.loading = !1;
+			}
+		}
+	}
+	async callRuleSwitch(e, t) {
+		!this.hass || !e.entityId || await this.hass.callService("switch", t ? "turn_on" : "turn_off", { entity_id: e.entityId });
+	}
+	getScheduleEnabledState() {
+		return this.rules.length === 0 ? "empty" : this.rules.every((e) => e.enabled) ? "all-on" : this.rules.every((e) => !e.enabled) ? "all-off" : "mixed";
+	}
+	async setAllRulesEnabled(e) {
+		if (!(!this.hass || this.rules.length === 0)) {
+			this.loading = !0, this.error = "";
+			try {
+				for (let t of this.rules) t.enabled !== e && await this.callRuleSwitch(t, e);
+				await this.refreshRules();
 			} catch (e) {
 				this.error = e instanceof Error ? e.message : String(e);
 			} finally {
@@ -1011,7 +991,7 @@ var Ce = class extends J {
 		}
 	}
 	async deleteRule(e) {
-		if (this.hass) {
+		if (!(!this.hass || !e.entityId)) {
 			this.loading = !0, this.error = "";
 			try {
 				await this.hass.callApi("POST", "scheduler/remove", { schedule_id: e.scheduleId }), await this.refreshRules();
@@ -1023,7 +1003,7 @@ var Ce = class extends J {
 		}
 	}
 	async deleteEditingRule() {
-		let e = Object.values(this.rulesBySchedule).flat().find((e) => e.scheduleId === this.editingRuleId);
+		let e = this.rules.find((e) => e.scheduleId === this.editingRuleId);
 		e && (await this.deleteRule(e), this.closeEditor());
 	}
 	formatValue(e, t) {
@@ -1065,11 +1045,49 @@ var Ce = class extends J {
       margin-bottom: 12px;
     }
 
-    .header-actions,
+    .footer-actions,
     .editor-actions {
       align-items: center;
       display: flex;
       gap: 6px;
+    }
+
+    .header-title {
+      align-items: center;
+      display: flex;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .header-title h2 {
+      min-width: 0;
+    }
+
+    .schedule-switch,
+    .rule-switch {
+      flex: 0 0 auto;
+    }
+
+    .schedule-switch-wrap {
+      align-items: center;
+      display: inline-flex;
+      flex: 0 0 auto;
+      position: relative;
+    }
+
+    .footer-actions {
+      justify-content: flex-end;
+      margin-top: 6px;
+    }
+
+    .schedule-switch-wrap.mixed {
+      opacity: 0.72;
+    }
+
+    .schedule-switch-wrap.mixed .schedule-switch {
+      border-radius: 999px;
+      outline: 1px solid color-mix(in srgb, var(--primary-color, #03a9f4) 50%, transparent);
+      outline-offset: 2px;
     }
 
     h2,
@@ -1144,19 +1162,6 @@ var Ce = class extends J {
       color: var(--error-color, #db4437);
     }
 
-    .tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
-    .tabs button.active {
-      background: var(--primary-color, #03a9f4);
-      border-color: var(--primary-color, #03a9f4);
-      color: var(--text-primary-color, #fff);
-    }
-
     .error {
       background: color-mix(in srgb, var(--error-color, #db4437) 12%, transparent);
       border-radius: 6px;
@@ -1180,21 +1185,21 @@ var Ce = class extends J {
       align-items: center;
       border: 1px solid var(--divider-color, #d8dce2);
       border-radius: 8px;
+      cursor: pointer;
       display: grid;
       gap: 10px;
-      grid-template-columns: 36px minmax(0, 1fr) 36px;
+      grid-template-columns: minmax(0, 1fr);
       min-height: 54px;
       padding: 8px;
     }
 
-    .toggle {
-      color: var(--secondary-text-color, #637381);
+    .rule:focus-visible {
+      outline: 2px solid var(--primary-color, #03a9f4);
+      outline-offset: 2px;
     }
 
-    .toggle.on {
-      background: color-mix(in srgb, var(--success-color, #0f9d58) 16%, transparent);
-      border-color: color-mix(in srgb, var(--success-color, #0f9d58) 70%, transparent);
-      color: var(--success-color, #0f9d58);
+    .rule:hover {
+      border-color: color-mix(in srgb, var(--primary-color, #03a9f4) 45%, var(--divider-color, #d8dce2));
     }
 
     .rule-main {
@@ -1239,17 +1244,53 @@ var Ce = class extends J {
     .editor {
       display: grid;
       gap: 10px;
-      grid-template-columns: 110px 1fr minmax(86px, auto) auto;
     }
 
     .rule-edit {
-      align-items: center;
       border: 1px solid var(--primary-color, #03a9f4);
       border-radius: 8px;
       display: grid;
       gap: 10px;
-      grid-template-columns: 110px 1fr minmax(86px, auto) auto;
       padding: 8px;
+    }
+
+    .editor-top {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .editor-top-right {
+      align-items: center;
+      display: flex;
+      gap: 6px;
+      margin-left: auto;
+    }
+
+    .editor-row {
+      align-items: center;
+      display: flex;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .editor-days {
+      justify-content: flex-start;
+    }
+
+    .editor-controls {
+      flex-wrap: wrap;
+    }
+
+    .editor-controls input[type="time"] {
+      width: 110px;
+    }
+
+    .editor-controls select,
+    .editor-controls input[type="number"] {
+      min-width: 86px;
     }
 
     .days,
@@ -1301,21 +1342,29 @@ var Ce = class extends J {
     }
 
     @media (max-width: 640px) {
-      .editor {
-        grid-template-columns: 1fr;
+      .editor-controls {
+        align-items: stretch;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto auto;
       }
 
-      .rule-edit {
-        grid-template-columns: 1fr;
+      .editor-actions {
+        justify-content: flex-end;
+      }
+
+      .editor-controls input[type="time"],
+      .editor-controls select,
+      .editor-controls input[type="number"] {
+        width: 100%;
       }
     }
   `;
 	}
 };
-customElements.define("easy-schedule-card", Ce), window.customCards = window.customCards ?? [], window.customCards.push({
+customElements.define("easy-schedule-card", $), window.customCards = window.customCards ?? [], window.customCards.push({
 	type: "easy-schedule-card",
 	name: "Easy Schedule Card",
 	description: "Simple time-based number and boolean schedules"
 });
 //#endregion
-export { Ce as EasyScheduleCard };
+export { $ as EasyScheduleCard };
